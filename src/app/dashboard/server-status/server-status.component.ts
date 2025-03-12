@@ -9,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class ServerStatusComponent {
   currentStatus = 'online';
+  ngOnInit() {
+    console.log('ngOnInit()......');
+    setInterval(() => {
+      this.currentStatus =
+        this.currentStatus === 'online' ? 'offline' : 'online';
+    }, 2000); // Changes status every second
+  }
 }
