@@ -1,4 +1,11 @@
-import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  DestroyRef,
+  OnDestroy,
+  OnInit,
+  inject,
+} from '@angular/core';
 import { timeout } from 'rxjs';
 
 @Component({
@@ -10,20 +17,25 @@ import { timeout } from 'rxjs';
 })
 export class ServerStatusComponent implements OnInit, AfterViewInit, OnDestroy {
   currentStatus = 'online';
-  private intervel?: ReturnType<typeof setInterval>;
+  // private intervel?: ReturnType<typeof setInterval>;
+  private destroyRef = inject(DestroyRef);
   ngOnInit() {
     console.log('ngOnInit()......');
-    this.intervel = setInterval(() => {
+    const intervel = setInterval(() => {
       this.currentStatus =
         this.currentStatus === 'online' ? 'offline' : 'online';
     }, 2000); // Changes status every second
+
+    this.destroyRef.onDestroy(() => {
+      clearTimeout(intervel);
+    });
   }
 
   ngAfterViewInit() {
     console.log('View Init');
   }
 
-  ngOnDestroy() {
-    clearTimeout(this.intervel);
-  }
+  // ngOnDestroy() {
+  //   clearTimeout(this.intervel);
+  // }
 }
