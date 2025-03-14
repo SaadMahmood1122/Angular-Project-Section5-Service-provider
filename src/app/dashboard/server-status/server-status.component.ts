@@ -15,7 +15,7 @@ import { timeout } from 'rxjs';
   templateUrl: './server-status.component.html',
   styleUrl: './server-status.component.css',
 })
-export class ServerStatusComponent implements OnInit, AfterViewInit, OnDestroy {
+export class ServerStatusComponent implements OnInit, AfterViewInit {
   currentStatus = 'online';
   // private intervel?: ReturnType<typeof setInterval>;
   private destroyRef = inject(DestroyRef);
