@@ -10,10 +10,8 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './new-ticket.component.css',
 })
 export class NewTicketComponent {
-  onSubmit(inputTitle: HTMLInputElement) {
-    console.log(inputTitle); // return <input _ngcontent-ng-c2507262048="" name="title" id="title">
-    //fetching value from
-    const title = inputTitle.value;
-    console.log(title);
+  onSubmit(inputTitle: string, inputText: string) {
+    console.log(inputTitle);
+    console.log(inputText);
   }
 }
