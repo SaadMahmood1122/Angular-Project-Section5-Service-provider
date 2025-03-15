@@ -1,4 +1,8 @@
-<form id="new-ticket" (ngSubmit)="onSubmit(inputTitle.value, inputText.value)">
+<form
+  id="new-ticket"
+  (ngSubmit)="onSubmit(inputTitle.value, inputText.value, form)"
+  #form
+>
   <p>
     <label>Title </label>
     <input name="title" id="title" #inputTitle />
