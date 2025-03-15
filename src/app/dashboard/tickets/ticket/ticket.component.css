@@ -45,6 +45,7 @@ article {
   
   button span:first-child {
     margin-bottom: 0.1rem;
+    color: #51c788;
   }
   
   button span:last-child {
@@ -55,6 +56,7 @@ article {
     margin: 0;
     padding: 1rem;
     font-size: 0.9rem;
+    color: green;
   }
   
   p:has(button) {
